@@ -33,7 +33,6 @@ class JishoDictionaryAccess():
     
     
 if __name__ == "__main__":
-    
     JishoDictionaryAccess().search_Word_and_Print()
     
     
