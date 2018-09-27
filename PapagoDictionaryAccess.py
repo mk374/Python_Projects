@@ -15,12 +15,10 @@ class PapagoDictionaryAccess:
     options.add_argument('--disable-gpu')
     driver= webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options = options)
         
-    def search_Word_and_Print(self):
-        driver = self.driver
-        driver.get("https://papago.naver.com/?sk=en&tk=ja")
+    def search_Word_and_Print(self, driver, word_input):
         element = driver.find_element_by_xpath('//*[@id="txtSource"]')
-        word_input = input("Word to translate? ")
-        print("Search: " + word_input)
+        #word_input = input("Word to translate? ")
+       
         #elementBtn = driver.find_element_by_xpath('//*[@id="btnTranslate"]')
         #elementBtn.click()
         #time.sleep(1)
@@ -30,13 +28,9 @@ class PapagoDictionaryAccess:
             elementBtn.click()
             element.send_keys(word_input + "\n")
             time.sleep(1)
-            print(driver.find_element_by_xpath('//*[@id="txtTarget"]').text)
+            print("Papago Definition of: " + driver.find_element_by_xpath('//*[@id="txtTarget"]').text)
         else: 
             element.send_keys(word_input + "\n")
             time.sleep(1)
-            (print(driver.find_element_by_xpath('//*[@id="txtTarget"]').text))
+            (print("Papago Definition of: "  + driver.find_element_by_xpath('//*[@id="txtTarget"]').text))
     
-  
-    
-if __name__ == "__main__":
-    PapagoDictionaryAccess().search_Word_and_Print()
