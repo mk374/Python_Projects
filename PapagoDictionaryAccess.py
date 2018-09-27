@@ -10,10 +10,7 @@ from selenium.webdriver.chrome.options import Options
 import re
 
 class PapagoDictionaryAccess:
-    options = Options()
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    driver= webdriver.Chrome(executable_path='/usr/local/bin/chromedriver', chrome_options = options)
+    
         
     def search_Word_and_Print(self, driver, word_input):
         element = driver.find_element_by_xpath('//*[@id="txtSource"]')
